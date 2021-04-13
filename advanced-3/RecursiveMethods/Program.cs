@@ -12,10 +12,10 @@ namespace RecursiveMethods
     {
         static void Main(string[] args)
         {
-            new Program().ListCurrentDirectoryTree(Directory.GetCurrentDirectory());
+            ListCurrentDirectoryTree(Directory.GetCurrentDirectory());
         }
 
-        private void ListCurrentDirectoryTree(string path, int indent = 0)
+        private static void ListCurrentDirectoryTree(string path, int indent = 0)
         {
             Console.WriteLine($"{new string(' ', indent)} {path}");
      
@@ -25,7 +25,7 @@ namespace RecursiveMethods
                 string [] files = Directory.GetFileSystemEntries(path);
                 foreach (var item in files)
                 {
-                    this.ListCurrentDirectoryTree(item, indent + 1);
+                    ListCurrentDirectoryTree(item, indent + 1);
                 }
             }            
         }
