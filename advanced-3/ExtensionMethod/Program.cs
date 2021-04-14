@@ -9,37 +9,7 @@ namespace ExtensionMethod
         {       
             DateTime dt = DateTime.Now;
             System.Console.WriteLine(dt.Format());
-
-            int loops = 5000_000;
-            Stopwatch watch = new Stopwatch();
-            watch.Start();
-            for (var i = 0; i < loops; i++)
-            {
-                dt.FormatFormat();
-            }
-            watch.Stop();
-            System.Console.WriteLine($"FormatFormat: {watch.ElapsedMilliseconds}");
-            watch.Reset();
-            watch.Start();
-            for (var i = 0; i < loops; i++)
-            {
-                dt.FormatInterpolation();
-            }
-            watch.Stop();
-            System.Console.WriteLine($"Format Interpollation: {watch.ElapsedMilliseconds}");
-            watch.Reset();
-            watch.Start();
-            for (var i = 0; i < loops; i++)
-            {
-                dt.FormatConcat();
-            }
-            watch.Stop();
-            System.Console.WriteLine($"Format Concat: {watch.ElapsedMilliseconds}");
-
-            // Format: 2089
-            // Format Interpollation: 1960
-            // Format Concat: 1238
-
+            if(args.Length > 0 && args[0].Equals(bool.TrueString, StringComparison.InvariantCultureIgnoreCase)) RunProfiling.Run();  
         }
     }
 
