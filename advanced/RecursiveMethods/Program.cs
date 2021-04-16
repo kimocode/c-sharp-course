@@ -8,16 +8,16 @@ namespace RecursiveMethods
     /// Exercise for recursive methods
     /// Variation: list files & directories
     /// </summary>
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
             ListCurrentDirectoryTree(Directory.GetCurrentDirectory());
         }
 
-        private static void ListCurrentDirectoryTree(string path, int indent = 0)
+        public static void ListCurrentDirectoryTree(string path, int indent = 0)
         {
-            Console.WriteLine($"{new string(' ', indent)} {path}");
+            Console.WriteLine($"{new string(' ', indent)} {path} - Created on: {File.GetCreationTimeUtc(path)}");
      
             FileAttributes attr = File.GetAttributes(path);
 
